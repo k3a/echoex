@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"net/http"
+
 	"github.com/k3a/echoex"
 
 	"github.com/labstack/echo/v4"
@@ -31,7 +32,7 @@ results in:
 
 func main() {
 	e := echoex.New()
-	e.Use(middleware.BodyLimit("32M") /*, middleware.Logger()*/, middleware.Recover())
+	e.Use(middleware.BodyLimit("32M"), middleware.Logger(), middleware.Recover())
 
 	h := func(c echo.Context) (err error) {
 		var params struct {
